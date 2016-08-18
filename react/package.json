@@ -1,0 +1,74 @@
+{
+  "name": "monator-liferay-react-hello-world",
+  "version": "1.0.0",
+  "description": "Hello World Example of React in a Liferay Portlet",
+  "scripts": {
+    "start": "NODE_ENV=development node dev-server.js",
+    "lint": "eslint src",
+    "build": "npm run build:clean-react && npm run build:clean-portlet && npm run build:webpack && npm run build:copy && npm run build:replace-filenames && npm run build:mvn",
+    "build:clean-react": "rimraf dist",
+    "build:clean-portlet": "rimraf '../portlet/src/main/webapp/static/{bundle,gen}.*'",
+    "build:webpack": "NODE_ENV=production webpack --config webpack/webpack.config.js",
+    "build:mvn": "mvn -f ../portlet/pom.xml clean package",
+    "build:copy": "copyfiles -f \"./dist/*.{js,css,png,jpg}\" ../portlet/src/main/webapp/static/",
+    "build:replace-filenames": "node replace-filenames.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emiloberg/monator-liferay-react-hello-world.git"
+  },
+  "keywords": [
+    "liferay",
+    "portlet",
+    "react",
+    "hello-world",
+    "boilerplate",
+    "es6",
+    "es2015"
+  ],
+  "author": "Emil Oberg",
+  "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+  "bugs": {
+    "url": "https://github.com/emiloberg/monator-liferay-react-hello-world/issues"
+  },
+  "homepage": "https://github.com/emiloberg/monator-liferay-react-hello-world",
+  "devDependencies": {
+    "babel-core": "^6.0.20",
+    "babel-eslint": "^4.1.3",
+    "babel-loader": "^6.0.1",
+    "babel-preset-es2015": "^6.0.15",
+    "babel-preset-react": "^6.0.15",
+    "babel-preset-stage-0": "^6.0.15",
+    "copyfiles": "^1.0.0",
+    "css-loader": "^0.23.0",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^2.1.1",
+    "eslint-loader": "^1.2.0",
+    "eslint-plugin-react": "^3.11.3",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.6.5",
+    "node-sass": "^3.4.2",
+    "react-addons-test-utils": "^0.14.5",
+    "react-hot-loader": "^1.3.0",
+    "redux-devtools": "^3.0.0",
+    "replace": "^0.3.0",
+    "rimraf": "^2.5.0",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.2",
+    "webpack-bundle-size-analyzer": "^1.3.0",
+    "webpack-dev-server": "^1.12.1",
+    "xml-parser": "^1.2.1"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.13.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.4.0",
+    "redux": "^3.3.1",
+    "redux-actions": "^0.10.1",
+    "redux-saga": "^0.9.1"
+  }
+}

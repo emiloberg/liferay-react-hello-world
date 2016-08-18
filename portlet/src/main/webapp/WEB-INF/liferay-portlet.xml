@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 6.2.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_6_2_0.dtd">
+
+<liferay-portlet-app>
+    <portlet>
+		<portlet-name>monator-liferay-react-hello-world</portlet-name>
+        <configuration-action-class>com.liferay.portal.kernel.portlet.DefaultConfigurationAction</configuration-action-class>
+        <preferences-owned-by-group>true</preferences-owned-by-group>
+        <instanceable>true</instanceable>
+        <header-portlet-css>/static/bundle.f85b02f9b0b753d94c585417bc60deec.min.css?minifierType=</header-portlet-css>
+        <header-portlet-javascript>/static/react-0.14.8.min.js?minifierType=</header-portlet-javascript>
+        <header-portlet-javascript>/static/react-dom-0.14.8.min.js?minifierType=</header-portlet-javascript>
+        <footer-portlet-javascript>/static/bundle.84bb6d4579ed7569c35d.min.js?minifierType=</footer-portlet-javascript>
+        <css-class-wrapper>monator-liferay-react-hello-world</css-class-wrapper>
+	</portlet>
+
+	<role-mapper>
+		<role-name>administrator</role-name>
+		<role-link>Administrator</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>guest</role-name>
+		<role-link>Guest</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>power-user</role-name>
+		<role-link>Power User</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>user</role-name>
+		<role-link>User</role-link>
+	</role-mapper>
+</liferay-portlet-app>
