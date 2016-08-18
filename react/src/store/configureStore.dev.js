@@ -1,8 +1,9 @@
 import 'babel-polyfill';
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from 'reducers';
-import sagaMiddleware from 'sagas';
+import createSagaMiddleware from 'redux-saga';
 
+const sagaMiddleware = createSagaMiddleware();
 const finalCreateStore = compose(
 	applyMiddleware(sagaMiddleware),
 	window.devToolsExtension ? window.devToolsExtension() : f => f
@@ -14,6 +15,7 @@ export default function configureStore(initialState) {
 	// Hot reload reducers
 	if (module.hot) {
 		module.hot.accept('../reducers', () =>
+			//eslint-disable-next-line global-require
 			store.replaceReducer(require('../reducers')/* .default if you use Babel 6+ */)
 		);
 	}

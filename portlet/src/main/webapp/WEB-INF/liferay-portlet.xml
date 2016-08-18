@@ -8,9 +8,9 @@
         <preferences-owned-by-group>true</preferences-owned-by-group>
         <instanceable>true</instanceable>
         <header-portlet-css>/static/bundle.f85b02f9b0b753d94c585417bc60deec.min.css?minifierType=</header-portlet-css>
-        <header-portlet-javascript>/static/react-0.14.8.min.js?minifierType=</header-portlet-javascript>
-        <header-portlet-javascript>/static/react-dom-0.14.8.min.js?minifierType=</header-portlet-javascript>
-        <footer-portlet-javascript>/static/bundle.84bb6d4579ed7569c35d.min.js?minifierType=</footer-portlet-javascript>
+        <header-portlet-javascript>/static/react-15.3.0.min.js?minifierType=</header-portlet-javascript>
+        <header-portlet-javascript>/static/react-dom-15.3.0.min.js?minifierType=</header-portlet-javascript>
+        <footer-portlet-javascript>/static/bundle.3822116a6acffc5c11ac.min.js?minifierType=</footer-portlet-javascript>
         <css-class-wrapper>monator-liferay-react-hello-world</css-class-wrapper>
 	</portlet>
 

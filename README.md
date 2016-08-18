@@ -26,9 +26,6 @@ npm run build
 ### Gotchas
 When building, the directory `portlet/src/main/webapp/static` is cleaned from all files named `gen.*` or `bundle.*`.
 
-# todo
-uppdatera alla moduler inkl react
-
 ## The Portlet
 
 ### Changing `artifactId`

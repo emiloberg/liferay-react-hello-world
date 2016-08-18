@@ -10,7 +10,7 @@ const Index = () => {
 	});
 
 	return (
-		<Provider store={store} >
+		<Provider store={ store } >
 			<App />
 		</Provider>
 	);

@@ -11,13 +11,6 @@ const ADD_SUBTRACT = 'hw/data/ADD_SUBTRACT';
 export const actionAddSubtract = createAction(ADD_SUBTRACT);
 
 /**
- * Root
- */
-export function* root() {
-	// Placeholder for future root sagas
-}
-
-/**
  * Reducer
  */
 const initState = 0;

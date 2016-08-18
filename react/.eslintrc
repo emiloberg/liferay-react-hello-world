@@ -33,6 +33,12 @@
     "react/jsx-indent-props": 0,
     "react/jsx-boolean-value": 0,
     "react/jsx-no-bind": 2,
+    "react/jsx-indent": 0,
+    "react/jsx-curly-spacing": [2, "always"],
+    "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": 0,
+    "import/imports-first": [2, ""],
+    "arrow-body-style": [2, "as-needed"],
     "comma-dangle": 0,
     "indent": 0,
     "spaced-comment": 0
