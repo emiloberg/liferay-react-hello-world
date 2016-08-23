@@ -5,6 +5,9 @@
     <portlet>
 		<portlet-name>monator-liferay-react-hello-world</portlet-name>
         <configuration-action-class>com.liferay.portal.kernel.portlet.DefaultConfigurationAction</configuration-action-class>
+		<friendly-url-mapper-class>com.liferay.portal.kernel.portlet.DefaultFriendlyURLMapper</friendly-url-mapper-class>
+		<friendly-url-mapping>hello-world</friendly-url-mapping>
+		<friendly-url-routes>hello-world-friendly-url-routes.xml</friendly-url-routes>
         <preferences-owned-by-group>true</preferences-owned-by-group>
         <instanceable>true</instanceable>
         <header-portlet-css>/static/bundle.f85b02f9b0b753d94c585417bc60deec.min.css?minifierType=</header-portlet-css>

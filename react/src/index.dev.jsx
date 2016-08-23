@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'store/configureStore.dev';
-import App from 'components/dumb/App/App';
+import App from 'components/dumb/NewApp/NewApp';
 
 const Index = () => {
 	const store = configureStore({

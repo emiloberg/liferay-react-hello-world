@@ -61,13 +61,15 @@
     "webpack": "^1.13.2",
     "webpack-bundle-size-analyzer": "^2.0.2",
     "webpack-dev-server": "^1.14.1",
-    "xml-parser": "^1.2.1"
+    "xml2js": "^0.4.17"
   },
   "dependencies": {
     "babel-polyfill": "^6.13.0",
+    "join-url": "^0.3.1",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
+    "react-router": "^2.6.1",
     "redux": "^3.5.2",
     "redux-actions": "^0.10.1",
     "redux-saga": "^0.11.0"
