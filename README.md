@@ -87,3 +87,20 @@ Nothing special at all, any portlet developer already know this.
 
 * Change liferay-plugin-package.properties (is `react-hello-world`)
 	* `src/main/webapp/WEB-INF/liferay-plugin-package.properties` change `name` (and whatever else you want).
+
+	
+## React
+
+### Hot Reload
+
+This is using version `3.0.0-beta.2` of `react-hot-loader` to enable hot loading of stateless components ([read more on GitHub](https://github.com/gaearon/react-hot-boilerplate/pull/61)).
+
+Currently, when using React router it will log an error in the developer console. There's [an open issue on this](https://github.com/reactjs/react-router/issues/2182). However, you can just disregard the error. Or even filter it away if you're running Chrome. Just add:
+
+```
+^((?!You cannot change <Router (routes|history)>).)+$
+```
+
+to the console log filter:
+
+![Screenshot of Chrome Dev Tools](https://cloud.githubusercontent.com/assets/992008/17159866/8a4b36e0-5355-11e6-8a51-35f581d4d606.png)

@@ -107,14 +107,8 @@ function createConfig(artifactId, friendlyUrlMapping) {
 
 	/**
 	 * Loaders, JSX.
-	 *
-	 * Add react-hot when in development mode to enable hot reloading
 	 */
-	const jsxLoader = [];
-	if (DEVELOPMENT) {
-		jsxLoader.push('react-hot');
-	}
-	jsxLoader.push('babel-loader');
+	const jsxLoader = ['babel-loader'];
 
 	/**
 	 * Loaders, SCSS.
@@ -196,13 +190,20 @@ function createConfig(artifactId, friendlyUrlMapping) {
 	 * the portlet to take care of the rendering process as it can render it
 	 * to a namespaced element.
 	 *
+	 * Also, in dev mode, make sure hot-loading works
 	 */
 	const entry = {
-		bundle: PRODUCTION ? ['./src/index.prod.jsx'] : ['./src/index.dev.jsx']
+		bundle: [
+			'./src/index.prod.jsx'
+		]
 	};
 	if (DEVELOPMENT) {
-		entry.bundle.push('webpack-dev-server/client?http://localhost:3000');
-		entry.bundle.push('webpack/hot/only-dev-server');
+		entry.bundle = [
+			'webpack-dev-server/client?http://localhost:3000',
+			'webpack/hot/only-dev-server',
+			'react-hot-loader/patch',
+			'./src/index.dev.jsx'
+		];
 	}
 
 	/**

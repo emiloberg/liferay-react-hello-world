@@ -5,6 +5,7 @@ import { IndexRoute, Route } from 'react-router';
 import App from 'routes/App/App';
 import Home from 'routes/Home/Home';
 import About from 'routes/About/About';
+import Kitten from 'components/dumb/Kitten/Kitten';
 
 const routes = (
 	<Route path={ urlParts.pagePrefix } component={ App }>
@@ -12,7 +13,7 @@ const routes = (
 		{/* Below needed for portlet on front page with
 		 portlet namespace (url: server.com/-/namespace)  */}
 		<Route path={ '-/' + FRIENDLYURLMAPPING } component={ Home } />
-		<Route path={ createRouteURL('about') } component={ About } />
+		<Route path={ createRouteURL('about') } component={ Kitten } />
 	</Route>
 );
 
