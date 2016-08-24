@@ -2,10 +2,19 @@
 
 ### Installation
 ```
-# Make sure you've a somewhat new Node version
-# Clone
-# cd into /react
+# 1. Make sure you've a somewhat new Node version
+# 2. clone this repo
+# 3. cd into /react
 npm install
+```
+
+### Build the portlet
+Build webpack and then the portlet itself to generate a .war file
+
+```
+# cd into /react
+npm run build
+# war file will be in /portlet/target
 ```
 
 ### Development mode
@@ -16,15 +25,8 @@ npm start
 # open web browser to localhost:3000
 ```
 
-### Build the portlet
-Build webpack and then the portlet itself to generate a .war file
-
-```
-npm run build
-```
-
 ### Gotchas
-When building, the directory `portlet/src/main/webapp/static` is cleaned from all files named `gen.*` or `bundle.*`.
+When building, the directory `portlet/src/main/webapp/static` is cleaned from all files named `bundle.*` and the subdirectory `static` is completely cleaned.
 
 ## The Portlet
 
@@ -104,3 +106,8 @@ Currently, when using React router it will log an error in the developer console
 to the console log filter:
 
 ![Screenshot of Chrome Dev Tools](https://cloud.githubusercontent.com/assets/992008/17159866/8a4b36e0-5355-11e6-8a51-35f581d4d606.png)
+
+
+## Other
+
+The [kitten is under CC0 license](https://www.pexels.com/photo/grey-fur-kitten-127028/).
