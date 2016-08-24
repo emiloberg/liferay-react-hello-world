@@ -75,23 +75,6 @@ function getFriendlyURLMapping() {
 	});
 }
 
-function generate() {
-	let artifactId;
-	let friendlyUrlMapping;
-
-	return getArtifactId()
-		.then((data) => { artifactId = data; })
-		.then(getFriendlyURLMapping)
-		.then((data) => { friendlyUrlMapping = data; })
-		.then(() => (
-			createConfig(
-				artifactId,
-				friendlyUrlMapping
-			)
-		));
-}
-
-
 function createConfig(artifactId, friendlyUrlMapping) {
 	/**
 	 * Save current build modes
@@ -103,8 +86,8 @@ function createConfig(artifactId, friendlyUrlMapping) {
 	/**
 	 * CSS/JS Bundle Filenames
 	 *
-	 * When building for production, add hash to js/css filenames.
-	 * This is an easy way to bust caches.
+	 * When building for production, the file's hash is addedto js/css filenames.
+	 * This is an easy way to bust web browser caches.
 	 *
 	 * Of course this means that every time a new build is made,
 	 * the Liferay portlet (liferay-portlet.xml) needs to be updated
@@ -147,7 +130,7 @@ function createConfig(artifactId, friendlyUrlMapping) {
 	 */
 	const cssSelectorName = TEST ? '[local]' : '[name]__[local]___[hash:base64:5]';
 	let cssLoader;
-	let cssLoaderParts = [
+	const cssLoaderParts = [
 		'css-loader?sourceMap&modules&importLoaders=1&localIdentName=' + cssSelectorName + '',
 		'sass?sourceMap'
 	];
@@ -239,7 +222,6 @@ function createConfig(artifactId, friendlyUrlMapping) {
 		devtool = 'hidden-source-map';
 	}
 
-
 	/**
 	 * External packages
 	 *
@@ -285,6 +267,7 @@ function createConfig(artifactId, friendlyUrlMapping) {
 	const output = {
 		path: path.join(__dirname, '../dist'),
 		filename: jsBundleFilename,
+		publicPath: '/'
 	};
 	if (PRODUCTION) {
 		output.libraryTarget = 'var';
@@ -324,13 +307,29 @@ function createConfig(artifactId, friendlyUrlMapping) {
 				reducers: 'src/reducers',
 				store: 'src/store',
 				sagas: 'src/sagas',
+				helpers: 'src/helpers',
+				routes: 'src/routes',
 			},
 			extensions: ['', '.js', '.json', '.jsx', '.css']
 		}
 	};
 }
 
-//module.exports = CONF;
+function generate() {
+	let artifactId;
+	let friendlyUrlMapping;
+
+	return getArtifactId()
+		.then((data) => { artifactId = data; })
+		.then(getFriendlyURLMapping)
+		.then((data) => { friendlyUrlMapping = data; })
+		.then(() => (
+			createConfig(
+				artifactId,
+				friendlyUrlMapping
+			)
+		));
+}
 
 module.exports = new Promise((resolve) => {
 	generate().then(resolve);

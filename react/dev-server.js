@@ -21,12 +21,12 @@ configPromise.then(config => {
 			children: false,
 			warnings: false
 		}
-	}).listen(3000, '0.0.0.0', function (err, result) {
+	}).listen(3000, '0.0.0.0', (err/*, result*/) => {
 		if (err) {
 			console.log(err);
 		}
 
-		console.log('Starting in ' + process.env.NODE_ENV + ' mode');
+		console.log(`Starting in ${process.env.NODE_ENV}`);
 		console.log('Listening at localhost:3000');
 	});
 });

@@ -10,11 +10,12 @@
     "mocha": true
   },
   "globals": {
-    "DEBUG": true,
+    "DEVELOPMENT": true,
     "PRODUCTION": true,
     "TEST": true,
     "__": true,
-    "LANGUAGE": true
+    "LANGUAGE": true,
+    "FRIENDLYURLMAPPING": true
   },
   "parser": "babel-eslint",
   "rules": {

@@ -40,6 +40,20 @@ Webpack reads the pom.xml and takes care of adding "/{artifactId}/static/" to al
 	* `pom.xml` change `<artifactId>`	
 	* `src/main/webapp/html/view.jsp` change in `... window.reactComponents['monator-liferay-react-hello-world-portlet'].reactComponent ...`
 
+### Changing the URLs (`friendly-url-mapping`)
+
+The `friendly-url-mapping` is used to create URLs. As React is in charge of creating URLs we need to create something that Liferay understands.
+
+Looking at an url such as this:
+
+```
+http://example.com/en_US/web/guest/react-example-page/-/hello-world/12345
+```
+
+The `http://example.com/en_US/web/guest/react-example-page` part is the URL to the actual page with the portlet on it. The `/-/hello-world/12345` says that portlet with `friendly-url-mapping` `hello-world` should be given the parameter `12345`.
+
+Therefor we need to pass on the `friendly-url-mapping` to React. This is done automagically. Webpack reads `<friendly-url-mapping>` from `portlet/src/main/webapp/WEB-INF/liferay-portlet.xml` where you can change it.
+
 ### Other things which you might want to change
 
 Nothing special at all, any portlet developer already know this.
