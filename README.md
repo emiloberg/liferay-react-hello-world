@@ -4,7 +4,7 @@
 ```
 # 1. Make sure you've a somewhat new Node version
 # 2. clone this repo
-# 3. cd into /react
+# 3. cd into monator-liferay-react-hello-world/react
 npm install
 ```
 
@@ -12,9 +12,9 @@ npm install
 Build webpack and then the portlet itself to generate a .war file
 
 ```
-# cd into /react
+# cd into monator-liferay-react-hello-world/react
 npm run build
-# war file will be in /portlet/target
+# war file will be in monator-liferay-react-hello-world/portlet/target
 ```
 
 ### Development mode
@@ -95,9 +95,9 @@ Nothing special at all, any portlet developer already know this.
 
 ### Hot Reload
 
-This is using version `3.0.0-beta.2` of `react-hot-loader` to enable hot loading of stateless components ([read more on GitHub](https://github.com/gaearon/react-hot-boilerplate/pull/61)).
+This project is using version `3.0.0-beta.2` of `react-hot-loader` to enable hot loading of stateless components ([read more on GitHub](https://github.com/gaearon/react-hot-boilerplate/pull/61)).
 
-Currently, when using React router it will log an error in the developer console. There's [an open issue on this](https://github.com/reactjs/react-router/issues/2182). However, you can just disregard the error. Or even filter it away if you're running Chrome. Just add:
+Currently, when using React router and hot reload it will log an error in the developer console (only in dev mode of course). There's [an open issue on this](https://github.com/reactjs/react-router/issues/2182). However, you can just disregard the error. Or even filter it away if you're running Chrome. Just add:
 
 ```
 ^((?!You cannot change <Router (routes|history)>).)+$
