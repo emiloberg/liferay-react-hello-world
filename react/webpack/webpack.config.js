@@ -14,7 +14,7 @@ const parseString = require('xml2js').parseString;
  * The artifactId is used in a few places:
  *	- It's the base URL for any files in the portlet.
  *		E.g: If you add an image to the project, it will be available
- *		at server.com/my-artifact-id/static/gen.c9a5ddd9d2.jpg
+ *		at server.com/my-artifact-id/static/assets/.c9a5ddd9d2.jpg
  *		Therefor we need to set the output.publicPath of the Webpack
  *		config to "/{artifactId}/static/" so that all URLs gets
  *		prepended with this.
@@ -140,7 +140,7 @@ function createConfig(artifactId, friendlyUrlMapping) {
 	 * Inline base64 URLs for <=8k images. All other images gets a
 	 * direct URL.
 	 */
-	const imageLoader = 'url-loader?limit=8192&name=gen.[hash:10].[ext]';
+	const imageLoader = 'url-loader?limit=8192&name=assets/[hash:10].[ext]';
 
 	/**
 	 * Plugins

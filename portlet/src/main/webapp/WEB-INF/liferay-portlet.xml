@@ -10,10 +10,10 @@
 		<friendly-url-routes>hello-world-friendly-url-routes.xml</friendly-url-routes>
         <preferences-owned-by-group>true</preferences-owned-by-group>
         <instanceable>false</instanceable>
-        <header-portlet-css>/static/bundle.1b6b10dc8b99bc5d1cda481d37bba457.min.css?minifierType=</header-portlet-css>
+        <header-portlet-css>/static/bundle.4adbbac308a95b581ce13bcbfb10cdc7.min.css?minifierType=</header-portlet-css>
         <header-portlet-javascript>/static/react-15.3.0.min.js?minifierType=</header-portlet-javascript>
         <header-portlet-javascript>/static/react-dom-15.3.0.min.js?minifierType=</header-portlet-javascript>
-        <footer-portlet-javascript>/static/bundle.5d6635bcc56dec091eab.min.js?minifierType=</footer-portlet-javascript>
+        <footer-portlet-javascript>/static/bundle.7c315c5684f1ef8b47c1.min.js?minifierType=</footer-portlet-javascript>
         <css-class-wrapper>monator-liferay-react-hello-world</css-class-wrapper>
 	</portlet>
 

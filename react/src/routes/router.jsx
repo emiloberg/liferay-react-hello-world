@@ -12,13 +12,8 @@ const appHistory = createAppHistory({
 	basename: urlParts.basename
 });
 
-export default class AppRoot extends React.Component {
-	render() {
-		return (
-			<Router history={ appHistory }>
-				{ routes }
-			</Router>
-		);
-	}
-}
-
+export default () => (
+	<Router history={ appHistory }>
+		{ routes }
+	</Router>
+);
