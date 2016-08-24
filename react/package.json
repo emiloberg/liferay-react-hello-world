@@ -7,7 +7,7 @@
     "lint": "eslint src",
     "build": "npm run build:clean-react && npm run build:clean-portlet && npm run build:clean-portlet-assets && npm run build:webpack && npm run build:copy-bundle && npm run build:copy-assets && npm run build:replace-filenames && npm run build:mvn",
     "build:clean-react": "rimraf dist",
-    "build:clean-portlet": "rimraf '../portlet/src/main/webapp/static/{bundle}.*'",
+    "build:clean-portlet": "rimraf '../portlet/src/main/webapp/static/bundle.*'",
     "build:clean-portlet-assets": "rimraf '../portlet/src/main/webapp/static/assets/*.*'",
     "build:webpack": "NODE_ENV=production webpack --config webpack/webpack.config.js",
     "build:mvn": "mvn -f ../portlet/pom.xml clean package",
