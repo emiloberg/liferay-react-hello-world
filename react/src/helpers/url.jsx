@@ -34,16 +34,14 @@ function getPageUrl(locationPathname) {
 	if (!pathname || pathname === '/') {
 		return {
 			basename: '',
-			pagePrefix: '/',
-			//rootRoute: '/',
+			pagePrefix: '/'
 		};
 	}
 
 	if (pathname.slice(-1) === '/') {
 		return {
 			basename: pathname,
-			pagePrefix: '/',
-			//rootRoute: '/',
+			pagePrefix: '/'
 		};
 	}
 
@@ -51,8 +49,7 @@ function getPageUrl(locationPathname) {
 	const page = pathArr.pop();
 	return {
 		basename: pathArr.join('/'),
-		pagePrefix: page,
-		//rootRoute: page,
+		pagePrefix: page
 	};
 }
 

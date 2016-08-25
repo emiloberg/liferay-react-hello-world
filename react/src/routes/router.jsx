@@ -1,10 +1,8 @@
-/* eslint-disable */
-
 import React from 'react';
 import { Router, useRouterHistory } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 
-import { urlParts } from 'helpers/url'
+import { urlParts } from 'helpers/url';
 import routes from 'routes/routes';
 
 const createAppHistory = useRouterHistory(createBrowserHistory);

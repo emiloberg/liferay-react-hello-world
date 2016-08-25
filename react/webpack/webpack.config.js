@@ -8,73 +8,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const fs = require('fs');
 const parseString = require('xml2js').parseString;
 
-/**
- * Read artifactId from pom.xml
- *
- * The artifactId is used in a few places:
- *	- It's the base URL for any files in the portlet.
- *		E.g: If you add an image to the project, it will be available
- *		at server.com/my-artifact-id/static/assets/.c9a5ddd9d2.jpg
- *		Therefor we need to set the output.publicPath of the Webpack
- *		config to "/{artifactId}/static/" so that all URLs gets
- *		prepended with this.
- *	- When we build for production and add the bundle.js
- * 		file on a webpage, the app will be available at
- * 		window.reactComponents.{artifactId}
- * 		This way we have a can namespace the different React portlets
- */
-function getArtifactId() {
-	return new Promise(resolve => {
-		const pomXML = fs
-			.readFileSync('../portlet/pom.xml', 'utf8');
-		parseString(pomXML, function (err, result) {
-			if (err) {
-				console.log('Error reading pom.xml, error 6');
-				console.log(err);
-				process.exit(1);
-			}
-
-			if (result.project.artifactId.length !== 1) {
-				console.log('Could not read artifactId from pom.xml, error 1');
-				process.exit(1);
-			}
-
-			resolve(result.project.artifactId[0]);
-		});
-	});
-}
-
-/**
- * Read friendly-url-mapping from liferay-portlet.xml
- *
- * The friendly-url-mapping is used to build URLs in the React portlet
- */
-function getFriendlyURLMapping() {
-	return new Promise(resolve => {
-		const lrPortletXML = fs
-			.readFileSync('../portlet/src/main/webapp/WEB-INF/liferay-portlet.xml', 'utf8');
-		parseString(lrPortletXML, function (err, result) {
-			if (err) {
-				console.log('Error reading liferay-portlet.xml, error 5');
-				console.log(err);
-				process.exit(1);
-			}
-
-			if (result['liferay-portlet-app'].portlet.length !== 1) {
-				console.log('Could not understand liferay-portlet.xml, error 3');
-				process.exit(1);
-			}
-
-			if (result['liferay-portlet-app'].portlet[0]['friendly-url-mapping'].length !== 1) {
-				console.log('Could not understand liferay-portlet.xml, error 4');
-				process.exit(1);
-			}
-
-			resolve(result['liferay-portlet-app'].portlet[0]['friendly-url-mapping'][0]);
-		});
-	});
-}
-
 function createConfig(artifactId, friendlyUrlMapping) {
 	/**
 	 * Save current build modes
@@ -316,6 +249,73 @@ function createConfig(artifactId, friendlyUrlMapping) {
 	};
 }
 
+/**
+ * Read artifactId from pom.xml
+ *
+ * The artifactId is used in a few places:
+ *	- It's the base URL for any files in the portlet.
+ *		E.g: If you add an image to the project, it will be available
+ *		at server.com/my-artifact-id/static/assets/.c9a5ddd9d2.jpg
+ *		Therefor we need to set the output.publicPath of the Webpack
+ *		config to "/{artifactId}/static/" so that all URLs gets
+ *		prepended with this.
+ *	- When we build for production and add the bundle.js
+ * 		file on a webpage, the app will be available at
+ * 		window.reactComponents.{artifactId}
+ * 		This way we have a can namespace the different React portlets
+ */
+function getArtifactId() {
+	return new Promise(resolve => {
+		const pomXML = fs
+			.readFileSync('../portlet/pom.xml', 'utf8');
+		parseString(pomXML, function (err, result) {
+			if (err) {
+				console.log('Error reading pom.xml, error 6');
+				console.log(err);
+				process.exit(1);
+			}
+
+			if (result.project.artifactId.length !== 1) {
+				console.log('Could not read artifactId from pom.xml, error 1');
+				process.exit(1);
+			}
+
+			resolve(result.project.artifactId[0]);
+		});
+	});
+}
+
+/**
+ * Read friendly-url-mapping from liferay-portlet.xml
+ *
+ * The friendly-url-mapping is used to build URLs in the React portlet
+ */
+function getFriendlyURLMapping() {
+	return new Promise(resolve => {
+		const lrPortletXML = fs
+			.readFileSync('../portlet/src/main/webapp/WEB-INF/liferay-portlet.xml', 'utf8');
+		parseString(lrPortletXML, function (err, result) {
+			if (err) {
+				console.log('Error reading liferay-portlet.xml, error 5');
+				console.log(err);
+				process.exit(1);
+			}
+
+			if (result['liferay-portlet-app'].portlet.length !== 1) {
+				console.log('Could not understand liferay-portlet.xml, error 3');
+				process.exit(1);
+			}
+
+			if (result['liferay-portlet-app'].portlet[0]['friendly-url-mapping'].length !== 1) {
+				console.log('Could not understand liferay-portlet.xml, error 4');
+				process.exit(1);
+			}
+
+			resolve(result['liferay-portlet-app'].portlet[0]['friendly-url-mapping'][0]);
+		});
+	});
+}
+
 function generate() {
 	let artifactId;
 	let friendlyUrlMapping;
@@ -335,4 +335,3 @@ function generate() {
 module.exports = new Promise((resolve) => {
 	generate().then(resolve);
 });
-
